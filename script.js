@@ -37,15 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => button.classList.remove('clicked'), 200);
         });
     });
+    
     document.addEventListener('DOMContentLoaded', (event) => {
-        const videoElement = document.getElementById('videoElement');
-        const downloadButton = document.getElementById('downloadButton');
-    
-        downloadButton.href = videoElement.querySelector('source').src;
-        downloadButton.download = 'Savory Tales of Mountain and Sea.mp4';
-    
-        downloadButton.click();
+    const videoElement = document.getElementById('videoElement');
+    const downloadButton = document.getElementById('downloadButton');
+
+        downloadButton.addEventListener('click', () => {
+            const videoSource = videoElement.querySelector('source').src;
+            const a = document.createElement('a');
+            a.href = videoSource;
+            a.download = 'Savory Tales of Mountain and Sea.mp4';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
     });
+
 
 });
 
