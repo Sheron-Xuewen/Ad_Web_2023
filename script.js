@@ -37,7 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => button.classList.remove('clicked'), 200);
         });
     });
-    
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const downloadLink = document.getElementById('autoDownloadLink');
+        downloadLink.click();
+    });
+
 
 });
 
