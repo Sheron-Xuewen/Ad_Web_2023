@@ -1,0 +1,422 @@
+html, body {
+    font-family: Arial, sans-serif;
+    font-weight: 350; /* 300是比较细的字体权重，前提是字体支持这个权重 */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(#000000, rgb(7, 10, 92));
+    border: 2px solid #000000; /* 黑色实线边框 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.top-navigation li {
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.top-navigation li:hover {
+    background-color: #a59377;
+}
+
+.bottom-navigation {
+    background-image: linear-gradient(rgb(7, 10, 92), #000000);
+    font-weight: 350;
+    border: 2px solid #000000; /* 黑色实线边框 */
+    color: rgb(255, 255, 255); /* 文字颜色 */
+    text-align: center; /* 文字居中对齐 */
+    padding: 15px 0; /* 上下内填充20px，左右0 */
+    position: fixed; /* 固定在底部 */
+    bottom: 0; /* 底部对齐 */
+    width: 100%; /* 宽度100% */
+    font-size: 14px; /* 设置字号为14 */
+    z-index: 10; /* z-index设置为10，确保它位于页面其他内容之上 */
+}
+
+.scene-container {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 50px); /* Adjust height based on nav height */
+}
+
+
+
+/* 默认显示第一个场景 */
+.scene:first-of-type {
+    display: block;
+}
+
+
+
+
+
+/* home */
+.scene#Home {
+    background-image: url('pic/home.jpg');
+    min-height: 85vh; /* 或者设置一个足够大的固定高度 */
+    background-position: left; /* 显示图片的左半部分 */
+    position: relative; /* 用于定位伪元素 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 标题居中 */
+    padding: 5px 20px 40px 20px;
+    flex-wrap: nowrap; /* 防止内容折行 */
+}
+
+.home-top {
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.home-bottom {
+    display: flex;
+    width: 100%;
+    z-index: 2;
+}
+
+.list-container {
+    background: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+    padding: 5px 15px;
+    box-sizing: border-box; /* 确保内边距不影响盒子尺寸 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* 调整列表样式 */
+.list-container ul {
+    list-style: inside; /* 将列表圆点置于盒子内部 */
+    padding: 0; /* 移除默认内边距 */
+}
+
+.list-container ul ul {
+    list-style-type: circle; /* 子列表使用不同的圆点样式 */
+    padding-left: 20px; /* 子列表的左侧内边距 */
+}
+
+.home-left, .home-right {
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    padding: 5px;
+    display: flex;
+}
+
+.home-left {
+    flex: 5; /* 左边占用的空间 */
+}
+
+.home-right {
+    flex: 5; /* 右边占用的空间 */
+}
+
+/* YouTube视频的样式 */
+.home-right iframe {
+    width: 100%; /* 视频宽度调整为容器的100% */
+    height: auto; /* 自动调整高度 */
+    aspect-ratio: 16 / 9; /* 设置宽高比为16:9 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* 阴影效果 */
+}
+
+
+
+.scene#Home .home-top h1 {
+    font-size: 2em ; /* 强制应用此字号 */
+    font-weight: 400;
+    background: rgba(255, 255, 255, 0.7); /* 半透明白色背景 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    color: #000000; /* 标题颜色 */
+    text-align: center; /* 标题居中对齐 */
+    margin: 10px ; /* 上下边距 */
+    padding: 10px; /* 内边距 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+    width: fit-content; /* 宽度根据内容自适应 */
+    margin: auto; /* 水平居中 */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* 媒体查询 - 小屏幕（非全屏状态） */
+@media (max-width: 767px) {
+    .home-bottom {
+        flex-direction: column; /* 内容垂直排列 */
+    }
+    .scene#Home {
+        height: 180vh;
+    }
+
+    .home-left, .home-right {
+        margin: 5px ; /* 上下边距 */
+        width: 95%; /* 子元素占满容器宽度 */
+    }
+
+    .home-right video {
+        width: 95%; /* 视频宽度适应容器 */
+        height: auto; /* 高度自动调整 */
+    }
+
+    .scene#Home .home-top h1 {
+        width: 95%; /* 标题宽度适应容器 */
+    }
+
+
+}
+
+@media (max-width: 1200px) {
+    .scene1-container {
+        padding-bottom: 80px;
+    }
+
+    .scene#Home {
+        padding-bottom: 80px;
+    }
+
+}
+
+/* scene1 */
+
+.scene1-container {
+    background-image: url('pic/scene1.jpg');
+    background-size: cover;
+    background-position: left;
+    position: relative; /* 用于定位伪元素 */
+    min-height: 90vh; 
+    align-items: center; /* 垂直居中 */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scene1-section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+    /* Custom background or color */
+}
+
+.scene1-title {
+    font-size: 24px; /* Adjust as needed */
+    font-weight: 400;
+}
+
+.scene1-content {
+    font-size: 16px; /* Adjust as needed */
+    font-weight: 400;
+}
+
+
+
+#scene1-competition-info {
+    background-color: rgba(224, 38, 38, 0.75); /* 深棕色，半透明 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    color: white; /* 文字颜色设置为白色 */ 
+}
+
+#scene1-competition-info a { /* 所有链接的默认样式 */
+    color: #B0C4DE; /* 例如浅钢蓝色 */
+    text-decoration: none; /* 如果不需要下划线可以加这个 */
+}
+
+#scene1-competition-info a:visited { /* 已访问链接的样式 */
+    color: #ADD8E6; /* 例如浅蓝色 */
+}
+
+#scene1-product-overview {
+    background-color: rgba(237, 221, 191, 0.75); /* 橙色，半透明 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    color: rgb(0, 0, 0); /* 文字颜色设置为白色 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+}
+
+#scene1-material-usage {
+    background-color: rgba(111, 67, 28, 0.75); /* 浅米色，半透明 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    color: rgb(255, 255, 255); /* 文字颜色设置为白色 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+}
+#scene1-material-usage a:visited { /* 已访问链接的样式 */
+    color: #ADD8E6; /* 例如浅蓝色 */
+}
+
+
+#scene1-themes-creativity {
+    background-color: rgba(25, 25, 65, 0.75); /* 暗蓝色，半透明 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    color: rgb(255, 255, 255); /* 文字颜色设置为白色 */
+    border: 2px solid #000000; /* 黑色实线边框 */
+}
+
+.scene table {
+    width: 100%;
+    table-layout: fixed;
+    padding-bottom: 50px; /* 底边距，根据需要调整 */
+    border-collapse: separate; /* 使单元格边框分开，以便设置表格边框 */
+    box-shadow: 4px 4px 10px #000000; /* 给表格添加阴影效果 */
+    border-spacing: 5px; /* 设置单元格间的间距 */
+}
+
+.scene td {
+    box-shadow: 2px 2px 5px #000000; /* 给单元格添加阴影效果 */
+}
+
+.scene img {
+    width: 25%;
+    height: auto;
+}
+
+.scene td:first-child {
+    width: 60%;
+}
+
+.scene td:last-child {
+    width: 40%;
+    padding: 0 15px; /* 为单元格文本添加左右边距 */
+}
+
+
+.row-color-1 {
+    background-image: linear-gradient(to right, #ffffff, #ffffff 60%, #a4e2f8);
+}
+
+.row-color-2 {
+    background-image: linear-gradient(to right, #a0b0c8, #a0b0c8 60%, #d94119);
+    color: rgb(255, 255, 255);
+}
+
+.row-color-4 {
+    background-image: linear-gradient(to right, #cbc1ac, #cbc1ac 60%, #7d572d);
+    color: rgb(255, 255, 255);
+}
+
+.row-color-3 {
+    background-image: linear-gradient(to right, #eae1cd, #eae1cd 60%, #b18733);
+}
+
+.row-color-5 {
+    background-image: linear-gradient(to right, #9b725e, #9b725e 60%, #450d12);
+    color: rgb(255, 255, 255);
+}
+
+.row-color-6 {
+    background-image: linear-gradient(to right, #647394, #647394 60%, #021025);
+    color: rgb(255, 255, 255);
+}
+
+@media (max-width: 1000px) {
+.scene table {
+    padding-bottom: 100px;
+}
+}
+
+/* 基本样式 */
+#scene4 .Sketches {
+  width: 100%;  /* 在较窄屏幕上，默认每张图片占满整行 */
+  height: auto;
+  display: block;  /* 块级元素，方便设置宽度 */
+  padding-bottom: 80px;
+}
+
+/* 当屏幕宽度至少为1000px时，图片横向排列 */
+@media screen and (min-width: 1000px) {
+  #scene4 .Sketches {
+    width: 33.33%;  /* 在宽屏幕上，每张图片占据容器宽度的三分之一 */
+    float: left;  /* 使图片左对齐，横向排列 */
+    padding-bottom: 60px;
+  }
+}
+
+#scene3 .full-width-image {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+    border: 2px solid #000000; /* 黑色实线边框 */
+  width: 100%;
+  height: auto;
+  margin: 10px 0; /* 在较窄屏幕上，只保留上下的边距，左右边距设为0 */
+}
+
+#scene3 .text-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#scene3 .text-box {
+    font-weight: 350; /* 300是比较细的字体权重，前提是字体支持这个权重 */
+  flex: 1 1 15%; /* 在全屏时占据18%的宽度 */
+  margin: 50px 10px; /* 上下保持10px，左右也是10px的边距 */
+  padding: 20px; /* 添加10px的内边距 */
+  text-align: center;
+  border: 5px solid #000000; /* 黑色实线边框 */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 767px) {
+  #scene3 .text-box {
+    flex-basis: 100%; /* 在半屏或更窄屏幕上，每个盒子占满一行 */
+    margin: 10px 0; /* 在较窄屏幕上，只保留上下的边距，左右边距设为0 */
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #scene3 .text-box {
+    padding-bottom: 100px;
+  }
+}
+
+#scene3 {
+  background-image: url('pic/s3.jpg');
+  background-size: cover;
+  background-position: left;
+  position: relative;
+  min-height: 90vh; /* 或者设置一个足够大的固定高度 */
+  display: flex;
+  flex-direction: column; /* 如果你希望子元素垂直排列 */
+  justify-content: center; /* 垂直居中对齐 */
+  align-items: center; /* 水平居中对齐 */
+}
+
+.text-box-01 {
+    background: rgba(247, 222, 193, 0.2); /* 米色，半透明，古朴 */
+    backdrop-filter: blur(5px);
+    color: rgb(0, 0, 0); /* 文字颜色为白色 */
+  }
+  
+  .text-box-02 {
+    background: rgba(252, 201, 176, 0.2); /* 淡粉橙色，半透明，古朴 */
+    backdrop-filter: blur(5px);
+    color: rgb(255, 255, 255); /* 文字颜色为白色 */
+  }
+  
+  .text-box-03 {
+    background: rgba(188, 90, 100, 0.2); /* 深梅红色，半透明，古朴 */
+    backdrop-filter: blur(5px);
+    color: rgb(255, 255, 255); /* 文字颜色为白色 */
+  }
+  
+
+  .text-box-04 {
+    background: rgba(107, 142, 108, 0.2); /* 灰绿色，半透明，古朴 */
+    backdrop-filter: blur(5px);
+    color: rgb(255, 255, 255); /* 文字颜色为白色 */
+}
+  
+
+
+  .text-box-05 {
+    background: rgba(176, 224, 230, 0.2); /* 淡青色，半透明，古朴 */
+    backdrop-filter: blur(5px);
+  }
+  
