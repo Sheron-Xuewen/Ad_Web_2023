@@ -38,21 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    document.addEventListener('DOMContentLoaded', (event) => {
-    const videoElement = document.getElementById('videoElement');
-    const downloadButton = document.getElementById('downloadButton');
-
-        downloadButton.addEventListener('click', () => {
-            const videoSource = videoElement.querySelector('source').src;
-            const a = document.createElement('a');
-            a.href = videoSource;
-            a.download = 'Savory Tales of Mountain and Sea.mp4';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        });
-    });
-
 
 });
 
