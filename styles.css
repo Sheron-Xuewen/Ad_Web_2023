@@ -248,6 +248,12 @@ html, body {
     color: rgb(255, 255, 255); /* 文字颜色设置为白色 */
     border: 2px solid #000000; /* 黑色实线边框 */
 }
+
+#scene1-material-usage a { /* 所有链接的默认样式 */
+    color: #B0C4DE; /* 例如浅钢蓝色 */
+    text-decoration: none; /* 如果不需要下划线可以加这个 */
+}
+
 #scene1-material-usage a:visited { /* 已访问链接的样式 */
     color: #ADD8E6; /* 例如浅蓝色 */
 }
