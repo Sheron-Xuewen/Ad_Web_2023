@@ -408,7 +408,7 @@ html, body {
   }
   
   .text-box-03 {
-    background: rgba(107, 142, 108, 0.2); /* 灰绿色，半透明，古朴 */
+    background: rgba(111, 67, 28, 0.0); /* 灰绿色，半透明，古朴 */
     backdrop-filter: blur(5px);
     color: rgb(255, 255, 255); /* 文字颜色为白色 */
   }
