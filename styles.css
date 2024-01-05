@@ -9,6 +9,7 @@ html, body {
 }
 /* 添加到你的CSS文件或<style>标签中 */
 #overlayGif {
+    opacity: 0.7;
     mix-blend-mode: multiply;
     position: fixed;  /* 固定位置，始终位于页面顶部 */
     top: 50%;         /* 从顶部开始的50%位置 */
